@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: {{.Values.deployment.kind}}
 metadata:
   name: {{ include "postgres.fullname" . }}
   labels:
     {{- include "postgres.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  serviceName: {{ include "postgres.fullname" . }}
+  replicas: {{ .Values.deployment.replicaCount }}
   selector:
     matchLabels:
       {{- include "postgres.selectorLabels" . | nindent 6 }}
