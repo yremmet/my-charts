@@ -1,9 +1,32 @@
 apiVersion: v1
 entries:
+  dashy:
+  - apiVersion: v2
+    appVersion: 2.0.3
+    created: "2022-03-06T11:31:03.79362+01:00"
+    description: A Helm chart for Dashy
+    digest: 7451d5c560d0969e8e579bb99dec787fb1eff9c369fd50c65ffdc36e1c4d3883
+    icon: https://dashy.to/img/dashy.png
+    name: dashy
+    type: application
+    urls:
+    - dashy-0.1.0.tgz
+    version: 0.1.0
+  foolstack-operator:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-03-06T11:31:03.794064+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 23c839020c54e076c3cc6ad8ebaf77fa1f5812a173dcb7fd0d4fc56d331f0ae8
+    name: foolstack-operator
+    type: application
+    urls:
+    - foolstack-operator-0.1.0.tgz
+    version: 0.1.0
   pihole:
   - apiVersion: v1
     appVersion: 2021.10.1
-    created: "2022-02-04T11:56:51.523237+01:00"
+    created: "2022-03-06T11:31:03.79563+01:00"
     description: Installs pihole in kubernetes
     digest: aec988aec39c5cf0f1208dee1ed0fa40600b0736a8e4bd7127b289a87283a10c
     home: https://github.com/MoJo2600/pihole-kubernetes/tree/master/charts/pihole
@@ -20,4 +43,27 @@ entries:
     urls:
     - pihole-2.5.4.tgz
     version: 2.5.4
-generated: "2022-02-04T11:56:51.521749+01:00"
+  postgres:
+  - apiVersion: v2
+    appVersion: "14.2"
+    created: "2022-03-06T11:31:03.796241+01:00"
+    description: Single Node Postgres deployment
+    digest: 5fc5f12cdc5a44d4897eb2a01a4c85397a7e99bdc4e963431275fe7a4b30aaad
+    icon: https://www.postgresql.org/media/img/about/press/elephant.png
+    name: postgres
+    type: application
+    urls:
+    - postgres-0.1.0.tgz
+    version: 0.1.0
+  rabbitmq:
+  - apiVersion: v2
+    appVersion: "3.9"
+    created: "2022-03-06T11:31:03.796771+01:00"
+    description: A Helm chart for RabbitMq
+    digest: 42ad2cbf0a8cc0dd5ad03b15b86fb0244819ce7a5d2a4e6279d450a38b93f457
+    name: rabbitmq
+    type: application
+    urls:
+    - rabbitmq-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-03-06T11:31:03.792853+01:00"
