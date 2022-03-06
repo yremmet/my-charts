@@ -1,0 +1,33 @@
+{{- if eq .Values.config.method "persistence" -}}
+{{- if .Values.persistence.enabled -}}
+{{- if not .Values.persistence.volumeClaim.existingClaim -}}
+apiVersion: "v1"
+kind: "PersistentVolumeClaim"
+metadata:
+{{- if .Values.persistence.volumeClaim.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.volumeClaim.annotations | indent 4 }}
+{{- end }}
+  labels:
+    app: {{ include "dashy.fullname" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: "{{ .Values.persistence.volumeClaim.name }}"
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ include "dashy.fullname" . }}
+spec:
+  accessModes:
+{{ toYaml .Values.persistence.volumeClaim.accessModes | indent 4 }}
+{{- if .Values.persistence.volumeClaim.storageClass }}
+{{- if (eq "-" .Values.persistence.volumeClaim.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.volumeClaim.storageClass }}"
+{{- end }}
+{{- end }}
+  resources:
+    requests:
+      storage: "{{ .Values.persistence.volumeClaim.size }}"
+{{- end -}}
+{{- end -}}
+{{- end -}}
