@@ -1,0 +1,64 @@
+---
+nameOverride: test-cluster
+backups:
+  enabled: false # TODO
+  retentionPolicy: 30d
+  provider: s3
+  endpointURL:  https://s3.<region>.amazonaws.com"
+  s3:
+    accessKey: ""
+    secretKey: ""
+    bucket: ""
+
+
+cluster:
+  resources:
+    requests:
+      memory: 1Gi
+      cpu: "1"
+    limits:
+      memory: 1Gi
+      cpu: "1"
+  # certificates:  TODO
+  #    serverCASecret: 
+  #    serverTLSSecret:
+  #    clientCASecret:
+  instances: 3
+  monitoring:
+    enabled: true
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.4
+  services:
+    disabledDefaultServices: ["ro", "r"]
+    additional:
+      - selectorType: rw
+        serviceTemplate:
+          metadata:
+            name: test-cluster-rw
+          spec:
+            type: LoadBalancer
+            loadBalancerIP: 1.2.3.4
+          updateStrategy: recreate
+        
+  postgresql:
+    #ldap: TODO
+    # server: 'openldap.default.svc.cluster.local'
+    # bindSearchAuth:
+    #   baseDN: 'ou=org,dc=example,dc=com'
+    #   bindDN: 'cn=admin,dc=example,dc=com'
+    #   bindPassword:
+    #     name: 'ldapBindPassword'
+    #     key: 'data'
+    #   searchAttribute: 'uid'
+    pg_hba:
+    - ""
+    pg_ident:
+    - ""
+    parameters: 
+      log_min_messages: WARNING
+      log_min_duration_statement: 250ms
+      log_checkpoint: "on"
+  storage:
+    size: 10G
+  initdb:
+      database: test2
+      owner: test2
