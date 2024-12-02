@@ -2,7 +2,27 @@ apiVersion: v1
 entries:
   cluster:
   - apiVersion: v2
-    created: "2024-11-04T09:56:48.749094+01:00"
+    created: "2024-12-02T10:42:59.620768+01:00"
+    description: Deploys and manages a CloudNativePG cluster and its associated resources.
+    digest: 33bc41c0afacbfb3273232a1ce890372e2c8b8eb585d39e4fb0dccf7921e0210
+    home: https://cloudnative-pg.io
+    icon: https://raw.githubusercontent.com/cloudnative-pg/artwork/main/cloudnativepg-logo.svg
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    maintainers:
+    - email: itay+cloudnativepg-charts+github.com@grudev.com
+      name: itay-grudev
+    name: cluster
+    sources:
+    - https://github.com/cloudnative-pg/charts
+    type: application
+    urls:
+    - cluster-0.0.13-dev.tgz
+    version: 0.0.13-dev
+  - apiVersion: v2
+    created: "2024-12-02T10:42:59.619422+01:00"
     description: Deploys and manages a CloudNativePG cluster and its associated resources.
     digest: 69c3d68bb3425f79f425d8d4adca45ef8a9dd06b77f7401ac43c8a126c9ebfc6
     home: https://cloudnative-pg.io
@@ -22,7 +42,7 @@ entries:
     - cluster-0.0.12-dev.tgz
     version: 0.0.12-dev
   - apiVersion: v2
-    created: "2024-11-04T09:56:48.747622+01:00"
+    created: "2024-12-02T10:42:59.618394+01:00"
     description: Deploys and manages a CloudNativePG cluster and its associated resources.
     digest: 1c70364ca2fc9b84beee4f821eb1d344de4079f00cc1644a6baa23c8416f60cd
     home: https://cloudnative-pg.io
@@ -42,7 +62,7 @@ entries:
     - cluster-0.0.11.tgz
     version: 0.0.11
   - apiVersion: v2
-    created: "2024-11-04T09:56:48.746529+01:00"
+    created: "2024-12-02T10:42:59.617417+01:00"
     description: Deploys and manages a CloudNativePG cluster and its associated resources.
     digest: beada36b93df54a8f64f7622992bc50ae6318f59c1ebef403608bdb33cd2fcbd
     home: https://cloudnative-pg.io
@@ -64,9 +84,9 @@ entries:
   dashy:
   - apiVersion: v2
     appVersion: 2.0.3
-    created: "2024-11-04T09:56:48.74965+01:00"
+    created: "2024-12-02T10:42:59.62099+01:00"
     description: A Helm chart for Dashy
-    digest: fe9247b2f8c28ea986eb000fa2592a787dde1f6646527edbc6e283317806d2b6
+    digest: 0a469a242bd97c370123174f274a43ec8f9a03399e7147c92dfaa63276b08b08
     icon: https://dashy.to/img/dashy.png
     name: dashy
     type: application
@@ -76,9 +96,9 @@ entries:
   foolstack-operator:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-11-04T09:56:48.749824+01:00"
+    created: "2024-12-02T10:42:59.621148+01:00"
     description: A Helm chart for Kubernetes
-    digest: 77a794e57bd336ff26051e2ee554ccb8658171e3daec2b9c7da6b2db75ec6b7b
+    digest: d6f47b9f50cd0b8a766745dcc86e734e1797b68ed5287127fefb84ad00734ba9
     name: foolstack-operator
     type: application
     urls:
@@ -87,7 +107,7 @@ entries:
   pihole:
   - apiVersion: v1
     appVersion: 2021.10.1
-    created: "2024-11-04T09:56:48.750398+01:00"
+    created: "2024-12-02T10:42:59.621685+01:00"
     description: Installs pihole in kubernetes
     digest: aec988aec39c5cf0f1208dee1ed0fa40600b0736a8e4bd7127b289a87283a10c
     home: https://github.com/MoJo2600/pihole-kubernetes/tree/master/charts/pihole
@@ -107,13 +127,13 @@ entries:
   postgres:
   - apiVersion: v2
     appVersion: "14.2"
-    created: "2024-11-04T09:56:48.750592+01:00"
+    created: "2024-12-02T10:42:59.621863+01:00"
     description: Single Node Postgres deployment
-    digest: bc837bbc93774160bbfb41cbfedcafaa9135c8edc3ad077255c5cfe5837f3448
+    digest: f12fe896258ff0825a4478f0010708806da602686403460a22de5843bee64381
     icon: https://www.postgresql.org/media/img/about/press/elephant.png
     name: postgres
     type: application
     urls:
     - postgres-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-04T09:56:48.745322+01:00"
+generated: "2024-12-02T10:42:59.616325+01:00"
