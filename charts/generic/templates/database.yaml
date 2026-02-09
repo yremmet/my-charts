@@ -1,0 +1,15 @@
+---
+{{ if (default .Values.database false) }}
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: {{ include "generic.fullname" . }}-database
+  namespace: {{ (default .Values.databaseNamespace "postgres") }}
+  labels:
+    {{- include "generic.labels" . | nindent 4 }}
+spec:
+  name: {{ include "generic.fullname" . }}
+  owner: {{ include "generic.fullname" . }}
+  cluster:
+    name: {{ (default .Values.databaseCluster "postgres") }}
+{{end }}

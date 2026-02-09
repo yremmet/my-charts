@@ -19,14 +19,33 @@ cluster:
     limits:
       memory: 1Gi
       cpu: "1"
-  # certificates:  TODO
-  #    serverCASecret: 
-  #    serverTLSSecret:
-  #    clientCASecret:
+  initdb:
+    postInitSQL:
+      - CREATE DATABASE angus
+    postInitApplicationSQL:
+      - "select 1;"
+    
   instances: 3
   monitoring:
-    enabled: true
+    enabled: false
   imageName: ghcr.io/cloudnative-pg/postgresql:16.4
+  roles:
+      - name: NEW
+        ensure: present
+        comment: Dante Alighieri
+        login: true
+        superuser: false
+        inherit: true
+        inRoles:
+        - app
+      - name: NEW2
+        ensure: present
+        comment: Dante Alighieri
+        login: true
+        superuser: false
+        inherit: true
+        inRoles:
+        - app
   services:
     disabledDefaultServices: ["ro", "r"]
     additional:
@@ -39,26 +58,5 @@ cluster:
             loadBalancerIP: 1.2.3.4
           updateStrategy: recreate
         
-  postgresql:
-    #ldap: TODO
-    # server: 'openldap.default.svc.cluster.local'
-    # bindSearchAuth:
-    #   baseDN: 'ou=org,dc=example,dc=com'
-    #   bindDN: 'cn=admin,dc=example,dc=com'
-    #   bindPassword:
-    #     name: 'ldapBindPassword'
-    #     key: 'data'
-    #   searchAttribute: 'uid'
-    pg_hba:
-    - ""
-    pg_ident:
-    - ""
-    parameters: 
-      log_min_messages: WARNING
-      log_min_duration_statement: 250ms
-      log_checkpoint: "on"
   storage:
     size: 10G
-  initdb:
-      database: test2
-      owner: test2
