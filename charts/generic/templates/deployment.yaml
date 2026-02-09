@@ -56,13 +56,36 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          env:
+            {{- range .Values.secrets }}
+            - name: {{ .name | replace "-" "_" | upper }}_OP_URI
+              value: {{ .itemPath | quote }}
+            {{- end }}
+          envFrom:
+            {{- range .Values.secrets }}
+            - secretRef:
+                name: {{ .name }}
+            {{- end }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- range .Values.persistence }}
+          {{- if .enabled }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath | default (printf "/%s" .name) }}
+          {{- end }}
+          {{- end }}
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- range .Values.persistence }}
+      {{- if .enabled }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ include "generic.fullname" $ }}-{{ .name }}
+      {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

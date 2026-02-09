@@ -1,7 +1,7 @@
 
 {{- if or $.Values.additional_resources $.Values.templates -}}
-  {{- range $.Values.resources }}
----{{- toYaml (merge . $base) | nindent 0 }}
+  {{- range $.Values.additional_resources }}
+---{{- toYaml . | nindent 0 }}
   {{- end }}
   {{- range $.Values.templates }}
 ---{{- (tpl . $)  | nindent 0 }}
